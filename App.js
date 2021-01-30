@@ -2,15 +2,6 @@ import { StatusBar } from 'expo-status-bar';
 import React from 'react';
 import { StyleSheet, Text, View } from 'react-native';
 
-export default function App() {
-  return (
-    <View style={styles.container}>
-      <Text>Open up App.js to start working on your app!</Text>
-      <StatusBar style="auto" />
-    </View>
-  );
-}
-
 const styles = StyleSheet.create({
   container: {
     flex: 1,
@@ -18,4 +9,33 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'center',
   },
+  itemContainer: {
+    height: 100,
+    width: '100%',
+    borderColor: 'gray',
+    borderWidth: 1,
+    // 縦並びか横並びか
+    flexDirection: 'row',
+  },
+  leftContainer: {
+    backgroundColor: 'red',
+    width: 100,
+  },
+  rightContainer: {
+    backgroundColor: 'blue',
+    // 描画可能なエリアを可能な限り使用する
+    flex: 1,
+  },
 });
+
+export default function App() {
+  return (
+    <View style={styles.container}>
+      <View style={styles.itemContainer}>
+        <View style={styles.leftContainer}></View>
+        <View style={styles.rightContainer}></View>
+      </View>
+      <StatusBar style="auto" />
+    </View>
+  );
+}
