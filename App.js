@@ -1,6 +1,7 @@
 import { StatusBar } from 'expo-status-bar';
 import React from 'react';
 import { StyleSheet, Text, View, Image } from 'react-native';
+import ListItem from './components/ListItem';
 
 const styles = StyleSheet.create({
   container: {
@@ -38,24 +39,24 @@ const styles = StyleSheet.create({
 export default function App() {
   return (
     <View style={styles.container}>
-      <View style={styles.itemContainer}>
-        <View style={styles.leftContainer}>
-          <Image
-            style={{ width: 100, height: 100 }}
-            source={{
-              uri: 'https://reactnative.dev/img/tiny_logo.png',
-            }}
-          />
-        </View>
-        <View style={styles.rightContainer}>
-          <Text numberOfLines={3} style={styles.text}>
-            React Native combines the best parts of native development with
-            React, a best-in-class JavaScript library for building user
-            interfaces.
-          </Text>
-          <Text style={styles.subText}>ReactNews</Text>
-        </View>
-      </View>
+      <ListItem
+        imageUrl="https://reactnative.dev/img/tiny_logo.png"
+        title="React Native combines the best parts of native development with React,
+        a best-in-class JavaScript library for building user interfaces."
+        author="SampleNews"
+      />
+      <ListItem
+        imageUrl="https://reactnative.dev/img/tiny_logo.png"
+        title="React Native combines the best parts of native development with React,
+        a best-in-class JavaScript library for building user interfaces."
+        author="SampleNews"
+      />
+      <ListItem
+        imageUrl="https://reactnative.dev/img/tiny_logo.png"
+        title="React Native combines the best parts of native development with React,
+        a best-in-class JavaScript library for building user interfaces."
+        author="SampleNews"
+      />
       <StatusBar style="auto" />
     </View>
   );
