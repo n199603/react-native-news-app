@@ -23,6 +23,15 @@ const styles = StyleSheet.create({
   rightContainer: {
     // 描画可能なエリアを可能な限り使用する
     flex: 1,
+    padding: 10,
+    justifyContent: 'space-between',
+  },
+  text: {
+    fontSize: 16,
+  },
+  subText: {
+    fontSize: 12,
+    color: 'gray',
   },
 });
 
@@ -39,12 +48,12 @@ export default function App() {
           />
         </View>
         <View style={styles.rightContainer}>
-          <Text numberOfLines={3}>
+          <Text numberOfLines={3} style={styles.text}>
             React Native combines the best parts of native development with
             React, a best-in-class JavaScript library for building user
             interfaces.
           </Text>
-          <Text>ReactNews</Text>
+          <Text style={styles.subText}>ReactNews</Text>
         </View>
       </View>
       <StatusBar style="auto" />
