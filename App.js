@@ -2,6 +2,7 @@ import { StatusBar } from 'expo-status-bar';
 import React from 'react';
 import { StyleSheet, Text, View, Image } from 'react-native';
 import ListItem from './components/ListItem';
+import articles from './dummies/articles.json';
 
 const styles = StyleSheet.create({
   container: {
@@ -37,26 +38,20 @@ const styles = StyleSheet.create({
 });
 
 export default function App() {
+  const items = articles.map((article, index) => {
+    return (
+      <ListItem
+        imageUrl={article.urlToImage}
+        title={article.title}
+        author={article.author}
+        key={index}
+      />
+    );
+  });
+
   return (
     <View style={styles.container}>
-      <ListItem
-        imageUrl="https://reactnative.dev/img/tiny_logo.png"
-        title="React Native combines the best parts of native development with React,
-        a best-in-class JavaScript library for building user interfaces."
-        author="SampleNews"
-      />
-      <ListItem
-        imageUrl="https://reactnative.dev/img/tiny_logo.png"
-        title="React Native combines the best parts of native development with React,
-        a best-in-class JavaScript library for building user interfaces."
-        author="SampleNews"
-      />
-      <ListItem
-        imageUrl="https://reactnative.dev/img/tiny_logo.png"
-        title="React Native combines the best parts of native development with React,
-        a best-in-class JavaScript library for building user interfaces."
-        author="SampleNews"
-      />
+      {items}
       <StatusBar style="auto" />
     </View>
   );
