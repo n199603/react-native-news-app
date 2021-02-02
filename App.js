@@ -3,6 +3,7 @@ import React, { useState, useEffect } from 'react';
 import { StyleSheet, View, FlatList, SafeAreaView } from 'react-native';
 import ListItem from './components/ListItem';
 import dummyArticles from './dummies/articles.json';
+import Constants from 'expo-constants';
 
 const styles = StyleSheet.create({
   container: {
@@ -51,8 +52,9 @@ export default function App() {
 
   const [articles, setArticles] = useState([]);
 
+  // コンポーネントマウント時
   useEffect(() => {
-    alert("called!");
+    alert(Constants.manifest.extra.newsApiKey);
     const timer = setTimeout(() => {
       setArticles(dummyArticles)
     }, 2000);
