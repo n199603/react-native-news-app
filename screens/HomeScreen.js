@@ -5,7 +5,7 @@ import ListItem from '../components/ListItem';
 import Constants from 'expo-constants';
 import axios from 'axios';
 
-const URL = `http://newsapi.org/v2/top-headlines?country=jp&apiKey=${Constants.manifest.extra.newsApiKey}`
+const URL = `http://newsapi.org/v2/top-headlines?country=jp&category=technology&apiKey=${Constants.manifest.extra.newsApiKey}`
 
 const styles = StyleSheet.create({
   container: {
@@ -77,7 +77,7 @@ export default HomeScreen = ({navigation}) => {
             imageUrl={item.urlToImage}
             title={item.title}
             author={item.author}
-            onPress={() => navigation.navigate("Article")}
+            onPress={() => navigation.navigate('Article', {article: item})}
           />
         )}
         keyExtractor={(item, index) => index.toString()}
