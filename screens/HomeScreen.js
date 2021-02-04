@@ -40,7 +40,7 @@ const styles = StyleSheet.create({
   },
 });
 
-export default HomeScreen = () => {
+export default HomeScreen = ({navigation}) => {
   // const items = articles.map((article, index) => {
   //   return (
   //     <ListItem
@@ -77,6 +77,7 @@ export default HomeScreen = () => {
             imageUrl={item.urlToImage}
             title={item.title}
             author={item.author}
+            onPress={() => navigation.navigate("Article")}
           />
         )}
         keyExtractor={(item, index) => index.toString()}
