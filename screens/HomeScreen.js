@@ -5,7 +5,7 @@ import ListItem from '../components/ListItem';
 import Constants from 'expo-constants';
 import axios from 'axios';
 
-const URL = `http://newsapi.org/v2/top-headlines?country=jp&category=technology&apiKey=${Constants.manifest.extra.newsApiKey}`
+const URL = `http://newsapi.org/v2/top-headlines?country=jp&category=technology&apiKey=${Constants.manifest.extra.newsApiKey}`;
 
 const styles = StyleSheet.create({
   container: {
@@ -40,7 +40,7 @@ const styles = StyleSheet.create({
   },
 });
 
-export default HomeScreen = ({navigation}) => {
+export default HomeScreen = ({ navigation }) => {
   // const items = articles.map((article, index) => {
   //   return (
   //     <ListItem
@@ -62,11 +62,11 @@ export default HomeScreen = ({navigation}) => {
   const fetchArticles = async () => {
     try {
       const response = await axios.get(URL);
-      setArticles(response.data.articles)
+      setArticles(response.data.articles);
     } catch (error) {
       console.error(error);
     }
-  }
+  };
 
   return (
     <SafeAreaView style={styles.container}>
@@ -77,7 +77,7 @@ export default HomeScreen = ({navigation}) => {
             imageUrl={item.urlToImage}
             title={item.title}
             author={item.author}
-            onPress={() => navigation.navigate('Article', {article: item})}
+            onPress={() => navigation.navigate('Article', { article: item })}
           />
         )}
         keyExtractor={(item, index) => index.toString()}
@@ -85,4 +85,4 @@ export default HomeScreen = ({navigation}) => {
       <StatusBar style="auto" />
     </SafeAreaView>
   );
-}
+};

@@ -9,8 +9,8 @@ const styles = StyleSheet.create({
   },
 });
 
-export default ArticleScreen = ({route}) => {
-  const {article} = route.params;
+export default ArticleScreen = ({ route }) => {
+  const { article } = route.params;
   return (
     <SafeAreaView style={styles.container}>
       <WebView source={{ uri: article.url }} />
